@@ -18,15 +18,18 @@ namespace GreedyBFS8Puzzle
         private int x = 0;                                      //Indicador de posicion del 0
         private int col = 3;                                    //Posiciones del puzzle que es 3 x 3
 
+        private int peso;                                       //Peso del puzzle f(n)
+
         public int[] Puzzle { get => puzzle; set => puzzle = value; }
         public int X { get => x; set => x = value; }
         internal List<Node> Children { get => children; set => children = value; }
         internal Node Parent { get => parent; set => parent = value; }
         public int Col { get => col; set => col = value; }
+        public int Peso { get => peso; set => peso = value; }
         #endregion
 
         #region Constructor
-        public Node(int [] value)
+        public Node(int[] value)
         {
             SetPuzzle(value); //Establecer el puzzle actual
         }
@@ -49,13 +52,13 @@ namespace GreedyBFS8Puzzle
 
         public void ExpandNode()
         {
-            for(int i = 0; i<puzzle.Length;i++)
+            for (int i = 0; i < puzzle.Length; i++)
             {
                 if (puzzle[i] == 0)
-                    x = i;                         
+                    x = i;
             }
-            
-            MoveToRigth(puzzle,x);
+
+            MoveToRigth(puzzle, x);
             MoveToLEft(puzzle, x);
             MoveToUp(puzzle, x);
             MoveToDown(puzzle, x);
@@ -67,7 +70,7 @@ namespace GreedyBFS8Puzzle
             bool isGoal = true;
             int m = puzzle[0];
 
-            for(int i = 1; i < puzzle.Length; i++)
+            for (int i = 1; i < puzzle.Length; i++)
             {
                 if (m > puzzle[i])
                     isGoal = false;
@@ -79,9 +82,9 @@ namespace GreedyBFS8Puzzle
         //Funcion para copiar el puzzle cuando se realzia un movimiento y poder evaluar los hijos en ese estado. 
         public void CopyPuzzle(int[] PrimerPuzzle, int[] SecondPuzzle)
         {
-            for(int i = 0; i < SecondPuzzle.Length; i++)
+            for (int i = 0; i < SecondPuzzle.Length; i++)
             {
-                PrimerPuzzle[i] = SecondPuzzle[i]; 
+                PrimerPuzzle[i] = SecondPuzzle[i];
             }
         }
 
@@ -90,9 +93,9 @@ namespace GreedyBFS8Puzzle
         {
             Console.WriteLine();
             int m = 0;
-            for(int i = 0; i < col; i++)
+            for (int i = 0; i < col; i++)
             {
-                for(int j = 0; j < col; j++)
+                for (int j = 0; j < col; j++)
                 {
                     Console.Write(puzzle[m] + " ");
                     m++;
@@ -104,9 +107,9 @@ namespace GreedyBFS8Puzzle
         public bool IsSamePuzzle(int[] p)
         {
             bool samePuzzle = true;
-            for(int i = 0; i < p.Length; i++)
+            for (int i = 0; i < p.Length; i++)
             {
-                if(puzzle[i] != p[i])
+                if (puzzle[i] != p[i])
                 {
                     samePuzzle = false;
                 }
@@ -114,6 +117,25 @@ namespace GreedyBFS8Puzzle
             return samePuzzle;
 
         }
+
+        //Funcion para obtener valor de F(n)
+        private int GetWeith(Node child)
+        {
+            int distance = 0;
+            
+            for(int i = 0; i < 9; i++)
+            {
+                int CurrentRow = i / 3;
+                int CurrentColumn = i % 3;
+
+                int TarjetRow = child.Puzzle[i] / 3;
+                int TarjetColumn = child.Puzzle[i] % 3;
+
+                distance += Math.Abs(CurrentRow - TarjetRow) + Math.Abs(CurrentColumn - TarjetColumn);
+            }
+            return distance;
+        }
+
         #region Movimientos Derecha, Izquierda, Abajo y Arriba
         //Mover a la derecha y obtener hijos posibles
         public void MoveToRigth(int[] value, int index) //Recibe el puzle actual y el index del 0 o espacio en blanco
@@ -128,6 +150,10 @@ namespace GreedyBFS8Puzzle
                 puzzle_auxiliar[index] = temporal;
 
                 Node child = new Node(puzzle_auxiliar);
+
+                //Mandar llamar la funcion del peso del no f(n)                 //Agregar valor del peso retornado
+                Peso = GetWeith(child);
+
                 children.Add(child);
                 child.parent = this; 
             }
@@ -146,6 +172,10 @@ namespace GreedyBFS8Puzzle
                 puzzle_auxiliar[index] = temporal;
 
                 Node child = new Node(puzzle_auxiliar);
+
+                //Mandar llamar la funcion del peso del no f(n)                 //Agregar valor del peso retornado
+                Peso = GetWeith(child);
+
                 children.Add(child);
                 child.parent = this;
             }
@@ -164,6 +194,10 @@ namespace GreedyBFS8Puzzle
                 puzzle_auxiliar[index] = temporal;
 
                 Node child = new Node(puzzle_auxiliar);
+
+                //Mandar llamar la funcion del peso del no f(n)                 //Agregar valor del peso retornado
+                Peso = GetWeith(child);
+
                 children.Add(child);
                 child.parent = this; 
             }
@@ -182,6 +216,10 @@ namespace GreedyBFS8Puzzle
                 puzzle_auxiliar[index] = temporal;
 
                 Node child = new Node(puzzle_auxiliar);
+
+                //Mandar llamar la funcion del peso del no f(n)                 //Agregar valor del peso retornado
+                Peso = GetWeith(child);
+
                 children.Add(child);
                 child.parent = this;
             }
