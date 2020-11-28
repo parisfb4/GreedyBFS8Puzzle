@@ -14,7 +14,7 @@ namespace GreedyBFS8Puzzle
 
         }
 
-        public List<Node> BreadthFirstSearch(Node root)
+        public List<Node> BestFirstSearch(Node root)
         {
             List<Node> PathToSolution = new List<Node>();
             List<Node> OpenList = new List<Node>(); //Lista que se puede expandir

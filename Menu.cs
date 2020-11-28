@@ -17,7 +17,7 @@ namespace GreedyBFS8Puzzle
 
             do
             {
-                Console.WriteLine(" \t 8 puzzle - Algoritmos de búsqueda\n" +
+                Console.WriteLine(" \t 8 puzzle - Algoritmos de búsqueda con Informacion\n" +
                     "1) Primero el mejor\n" +
                     "4) Salir");
                 opc = Convert.ToInt16(Console.ReadLine());
@@ -26,7 +26,7 @@ namespace GreedyBFS8Puzzle
                 {
                     case 1:
                         timerMeasure.Start();
-                        Amplitud();
+                        BestFirstSearch();
                         Console.WriteLine($"Tiempo: " + timerMeasure.Elapsed.Minutes  + ":" + timerMeasure.Elapsed.Seconds + " segundos");
                         break;
                     case 4:
@@ -39,7 +39,7 @@ namespace GreedyBFS8Puzzle
 
             } while (opc != 4);
         }
-        public void Amplitud()
+        public void BestFirstSearch()
         {
             //Puzzle Inicial
             int[] puzzle_initial = generarPuzzleAleatorio();
@@ -48,7 +48,7 @@ namespace GreedyBFS8Puzzle
             Node root = new Node(puzzle_initial);   //Envia el puzzle inicial a la clase
             UninformedSearch ui = new UninformedSearch();
            
-            List<Node> solution = ui.BreadthFirstSearch(root);
+            List<Node> solution = ui.BestFirstSearch(root);
             if (solution.Count > 0)
             {
                 Console.WriteLine("Solución encontrada");
