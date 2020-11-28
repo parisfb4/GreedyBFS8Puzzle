@@ -19,8 +19,6 @@ namespace GreedyBFS8Puzzle
             {
                 Console.WriteLine(" \t 8 puzzle - Algoritmos de búsqueda\n" +
                     "1) Primero el mejor\n" +
-                    "2) Profundidad\n" +
-                    "3) Profundidad iterativa\n" +
                     "4) Salir");
                 opc = Convert.ToInt16(Console.ReadLine());
 
@@ -30,16 +28,6 @@ namespace GreedyBFS8Puzzle
                         timerMeasure.Start();
                         Amplitud();
                         Console.WriteLine($"Tiempo: " + timerMeasure.Elapsed.Minutes  + ":" + timerMeasure.Elapsed.Seconds + " segundos");
-                        break;
-                    case 2:
-                        timerMeasure.Start();
-                        Profundidad();
-                        Console.WriteLine($"Tiempo: " + timerMeasure.Elapsed.Minutes + ":" + timerMeasure.Elapsed.Seconds + " segundos");
-                        break;
-                    case 3:
-                        timerMeasure.Start();
-                        ProfundidadIterativa();
-                        Console.WriteLine($"Tiempo: " + timerMeasure.Elapsed.Minutes + ":" + timerMeasure.Elapsed.Seconds + " segundos");
                         break;
                     case 4:
                         Console.WriteLine("Adios");
@@ -76,55 +64,6 @@ namespace GreedyBFS8Puzzle
             {
                 Console.WriteLine("No hay solución para este problema");
             }                 
-        }
-        public void Profundidad()
-        {
-            //Puzzle Inicial
-            int[] puzzle_initial = generarPuzzleAleatorio();
-            //int[] puzzle_initial = {1,0,2,3,4,5,6,7,8};
-
-            Node root = new Node(puzzle_initial);   //Envia el puzzle inicial a la clase
-            UninformedSearch ui = new UninformedSearch();
-
-            List<Node> solution = ui.DeepFirstSearch(root);
-            if (solution.Count > 0)
-            {
-                Console.WriteLine("Solución encontrada");
-                for (int i = 0; i < solution.Count; i++)
-                {
-                    solution[i].PrintPuzzle();
-                }
-            }
-            else
-            {
-                Console.WriteLine("No hay solución para este problema");
-            }
-        }
-
-        //Profundidad Interativa
-        public void ProfundidadIterativa()
-        {
-            //Puzzle Inicial
-            //int[] puzzle_initial = generarPuzzleAleatorio();
-            int[] puzzle_initial = { 1, 0, 2, 3, 5, 6, 4, 7, 8 };
-
-            Node root = new Node(puzzle_initial);   //Envia el puzzle inicial a la clase
-            Console.WriteLine("Puzzle Inicial");
-            UninformedSearch ui = new UninformedSearch();
-
-            List<Node> solution = ui.DeepFirstSearchIterative(root);
-            if (solution.Count > 0)
-            {
-                Console.WriteLine("Solución encontrada");
-                for (int i = 0; i < solution.Count; i++)
-                {
-                    solution[i].PrintPuzzle();
-                }
-            }
-            else
-            {
-                Console.WriteLine("No hay solución para este problema");
-            }
         }
 
         public int[] generarPuzzleAleatorio()
