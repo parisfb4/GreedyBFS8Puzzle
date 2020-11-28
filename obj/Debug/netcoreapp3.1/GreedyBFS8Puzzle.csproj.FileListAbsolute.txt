@@ -11,3 +11,16 @@ C:\Users\paris\OneDrive - Universidad de Guadalajara\Uni\IA\GreedyBFS8Puzzle\obj
 C:\Users\paris\OneDrive - Universidad de Guadalajara\Uni\IA\GreedyBFS8Puzzle\obj\Debug\netcoreapp3.1\GreedyBFS8Puzzle.dll
 C:\Users\paris\OneDrive - Universidad de Guadalajara\Uni\IA\GreedyBFS8Puzzle\obj\Debug\netcoreapp3.1\GreedyBFS8Puzzle.pdb
 C:\Users\paris\OneDrive - Universidad de Guadalajara\Uni\IA\GreedyBFS8Puzzle\obj\Debug\netcoreapp3.1\GreedyBFS8Puzzle.genruntimeconfig.cache
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\bin\Debug\netcoreapp3.1\GreedyBFS8Puzzle.exe
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\bin\Debug\netcoreapp3.1\GreedyBFS8Puzzle.deps.json
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\bin\Debug\netcoreapp3.1\GreedyBFS8Puzzle.runtimeconfig.json
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\bin\Debug\netcoreapp3.1\GreedyBFS8Puzzle.runtimeconfig.dev.json
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\bin\Debug\netcoreapp3.1\GreedyBFS8Puzzle.dll
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\bin\Debug\netcoreapp3.1\GreedyBFS8Puzzle.pdb
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\obj\Debug\netcoreapp3.1\GreedyBFS8Puzzle.csprojAssemblyReference.cache
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\obj\Debug\netcoreapp3.1\GreedyBFS8Puzzle.AssemblyInfoInputs.cache
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\obj\Debug\netcoreapp3.1\GreedyBFS8Puzzle.AssemblyInfo.cs
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\obj\Debug\netcoreapp3.1\GreedyBFS8Puzzle.csproj.CoreCompileInputs.cache
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\obj\Debug\netcoreapp3.1\GreedyBFS8Puzzle.dll
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\obj\Debug\netcoreapp3.1\GreedyBFS8Puzzle.pdb
+C:\Users\omara\OneDrive - Universidad de Guadalajara\Desktop\2020-B\INTELIGENCIA ARTIFICIAL\Ultima practica\Primero el mejor\GreedyBFS8Puzzle\obj\Debug\netcoreapp3.1\GreedyBFS8Puzzle.genruntimeconfig.cache

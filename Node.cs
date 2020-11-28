@@ -119,21 +119,21 @@ namespace GreedyBFS8Puzzle
         }
 
         //Funcion para obtener valor de F(n)
-        private int GetWeith(Node child)
+        private void GetWeith()
         {
             int distance = 0;
-            
+
             for(int i = 0; i < 9; i++)
             {
                 int CurrentRow = i / 3;
                 int CurrentColumn = i % 3;
 
-                int TarjetRow = child.Puzzle[i] / 3;
-                int TarjetColumn = child.Puzzle[i] % 3;
-
+                int TarjetRow = Puzzle[i] / 3;
+                int TarjetColumn = Puzzle[i] % 3;
+                
                 distance += Math.Abs(CurrentRow - TarjetRow) + Math.Abs(CurrentColumn - TarjetColumn);
             }
-            return distance;
+            peso = distance;
         }
 
         #region Movimientos Derecha, Izquierda, Abajo y Arriba
@@ -152,7 +152,7 @@ namespace GreedyBFS8Puzzle
                 Node child = new Node(puzzle_auxiliar);
 
                 //Mandar llamar la funcion del peso del no f(n)                 //Agregar valor del peso retornado
-                Peso = GetWeith(child);
+                child.GetWeith();
 
                 children.Add(child);
                 child.parent = this; 
@@ -174,7 +174,7 @@ namespace GreedyBFS8Puzzle
                 Node child = new Node(puzzle_auxiliar);
 
                 //Mandar llamar la funcion del peso del no f(n)                 //Agregar valor del peso retornado
-                Peso = GetWeith(child);
+                child.GetWeith();
 
                 children.Add(child);
                 child.parent = this;
@@ -196,7 +196,7 @@ namespace GreedyBFS8Puzzle
                 Node child = new Node(puzzle_auxiliar);
 
                 //Mandar llamar la funcion del peso del no f(n)                 //Agregar valor del peso retornado
-                Peso = GetWeith(child);
+                child.GetWeith();
 
                 children.Add(child);
                 child.parent = this; 
@@ -218,7 +218,7 @@ namespace GreedyBFS8Puzzle
                 Node child = new Node(puzzle_auxiliar);
 
                 //Mandar llamar la funcion del peso del no f(n)                 //Agregar valor del peso retornado
-                Peso = GetWeith(child);
+                child.GetWeith();
 
                 children.Add(child);
                 child.parent = this;

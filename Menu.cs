@@ -18,7 +18,7 @@ namespace GreedyBFS8Puzzle
             do
             {
                 Console.WriteLine(" \t 8 puzzle - Algoritmos de búsqueda\n" +
-                    "1) Amplitud\n" +
+                    "1) Primero el mejor\n" +
                     "2) Profundidad\n" +
                     "3) Profundidad iterativa\n" +
                     "4) Salir");
@@ -54,8 +54,8 @@ namespace GreedyBFS8Puzzle
         public void Amplitud()
         {
             //Puzzle Inicial
-            //int[] puzzle_initial = generarPuzzleAleatorio();
-            int[] puzzle_initial = {1,0,2,3,4,5,6,7,8};
+            int[] puzzle_initial = generarPuzzleAleatorio();
+            //int[] puzzle_initial = {1,0,2,3,4,5,6,7,8};
 
             Node root = new Node(puzzle_initial);   //Envia el puzzle inicial a la clase
             UninformedSearch ui = new UninformedSearch();
@@ -67,6 +67,9 @@ namespace GreedyBFS8Puzzle
                 for (int i = 0; i < solution.Count; i++)
                 {
                     solution[i].PrintPuzzle();
+                    Console.WriteLine("Peso: ");
+                    Console.Write(solution[i].Peso);
+                    Console.WriteLine();
                 }
             }
             else

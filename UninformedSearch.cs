@@ -20,26 +20,24 @@ namespace GreedyBFS8Puzzle
             List<Node> OpenList = new List<Node>(); //Lista que se puede expandir
             List<Node> ClosedList = new List<Node>(); //Las que ya fueron vistas y expandidas
 
+            Console.WriteLine("Puzzle Inicial");
+            root.PrintPuzzle();
+
             OpenList.Add(root); // Iniciar con la raíz
             bool goalFound = false; //Se llegó a la meta
 
             while (OpenList.Count > 0 && !goalFound) //Mientras haya posibilidades y no se haya llegado a la meta
             {
-                //Las 3 lineas Simulan una cola 
-                Node currentNode = OpenList[0]; //Primer elemento
-                ClosedList.Add(currentNode); // Para no volver a entrar ahí
-                OpenList.RemoveAt(0); //Sacarlo
+                Node currentNode = OpenList[0];
+                ClosedList.Add(currentNode);
+                OpenList.RemoveAt(0);
 
                 currentNode.ExpandNode();
-                //currentNode.PrintPuzzle();
 
-                for (int i = 0; i < currentNode.Children.Count; i++)
+                Node currentChild = LowestNode(ClosedList, currentNode);
+
+                if(currentChild != null)
                 {
-
-                    Node currentChild = currentNode.Children[i];
-
-                    //Aquí imprimiremos todos los estados
-
                     if (currentChild.GoalTest())
                     {
                         Console.WriteLine("Goal Found.");
@@ -47,16 +45,18 @@ namespace GreedyBFS8Puzzle
                         PathTrace(PathToSolution, currentChild);
                         //Trace path to root node
                     }
-
-                    //OpenList contiene currentChild && ClosedList contains currents child
-                    if (!Contains(OpenList, currentChild) && !Contains(ClosedList, currentChild))
+                    else
                     {
                         OpenList.Add(currentChild);
                     }
-
+                }
+                else
+                {
+                    //No tiene solucion
+                    //No encontro solucion
+                    //Evita un ciclo finito 
                 }
             }
-
             return PathToSolution;
         }
 
@@ -172,6 +172,30 @@ namespace GreedyBFS8Puzzle
             return PathToSolution;
         }
 
+        //Encontrar el mas pequeno y que no este en la lista cerrada
+        public Node LowestNode(List<Node> closedList, Node currentNode)
+        {
+            List<Node> sortedList = currentNode.GetChildren().OrderBy(nodo => nodo.Peso).ToList();
+
+            Console.WriteLine("Lista Ordenada");
+            for(int i = 0; i < sortedList.Count; i++)
+            {
+                Console.WriteLine("Puzzle");
+                sortedList[i].PrintPuzzle();
+                Console.WriteLine("Peso");
+                Console.WriteLine(sortedList[i].Peso);
+            }
+
+            for(int i = 0; i < sortedList.Count; i++)
+            {
+                if(!Contains(closedList, sortedList[i]))
+                {
+                    return sortedList[i];
+                }
+            }
+
+            return null;
+        }
 
 
         public void PathTrace(List<Node> path , Node n)
