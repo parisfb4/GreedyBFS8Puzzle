@@ -18,7 +18,7 @@ namespace GreedyBFS8Puzzle
             do
             {
                 Console.WriteLine(" \t 8 puzzle - Algoritmos de búsqueda con Informacion\n" +
-                    "1) Primero el mejor\n" +
+                    "1) A*\n" +
                     "4) Salir");
                 opc = Convert.ToInt16(Console.ReadLine());
 
