@@ -28,6 +28,8 @@ namespace GreedyBFS8Puzzle
                         timerMeasure.Start();
                         BestFirstSearch();
                         Console.WriteLine($"Tiempo: " + timerMeasure.Elapsed.Minutes  + ":" + timerMeasure.Elapsed.Seconds + " segundos");
+                        timerMeasure.Stop();
+                        timerMeasure.Reset();
                         break;
                     case 4:
                         Console.WriteLine("Adios");
@@ -55,8 +57,8 @@ namespace GreedyBFS8Puzzle
                 for (int i = 0; i < solution.Count; i++)
                 {
                     solution[i].PrintPuzzle();
-                    Console.WriteLine("Peso: ");
-                    Console.Write(solution[i].Peso);
+                    Console.WriteLine("F: ");
+                    Console.Write(solution[i].F);
                     Console.WriteLine();
                 }
             }

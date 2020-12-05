@@ -19,6 +19,8 @@ namespace GreedyBFS8Puzzle
         private int col = 3;                                    //Posiciones del puzzle que es 3 x 3
 
         private int peso;                                       //Peso del puzzle f(n)
+        private int g = 1;                                      //Coste del puzzle g(n)
+        private int f;                                          //Evaluacion de rendimiento -> F = g + h
 
         public int[] Puzzle { get => puzzle; set => puzzle = value; }
         public int X { get => x; set => x = value; }
@@ -26,6 +28,8 @@ namespace GreedyBFS8Puzzle
         internal Node Parent { get => parent; set => parent = value; }
         public int Col { get => col; set => col = value; }
         public int Peso { get => peso; set => peso = value; }
+        public int G { get => g; set => g = value; }
+        public int F { get => f; set => f = value; }
         #endregion
 
         #region Constructor
@@ -154,6 +158,12 @@ namespace GreedyBFS8Puzzle
                 //Mandar llamar la funcion del peso del no f(n)                 //Agregar valor del peso retornado
                 child.GetWeith();
 
+                //F(n) = g(1) + h(peso)
+                //F = 1 + peso;
+                //F = g + h
+                //f = g + peso;
+                child.F = child.G + child.Peso;
+
                 children.Add(child);
                 child.parent = this; 
             }
@@ -175,6 +185,11 @@ namespace GreedyBFS8Puzzle
 
                 //Mandar llamar la funcion del peso del no f(n)                 //Agregar valor del peso retornado
                 child.GetWeith();
+
+                //F(n) = g(1) + h(peso)
+                //F = 1 + peso;
+                //F = g + h
+                child.F = child.G + child.Peso;
 
                 children.Add(child);
                 child.parent = this;
@@ -198,6 +213,11 @@ namespace GreedyBFS8Puzzle
                 //Mandar llamar la funcion del peso del no f(n)                 //Agregar valor del peso retornado
                 child.GetWeith();
 
+                //F(n) = g(1) + h(peso)
+                //F = 1 + peso;
+                //F = g + h
+                child.F = child.G + child.Peso;
+
                 children.Add(child);
                 child.parent = this; 
             }
@@ -219,6 +239,11 @@ namespace GreedyBFS8Puzzle
 
                 //Mandar llamar la funcion del peso del no f(n)                 //Agregar valor del peso retornado
                 child.GetWeith();
+
+                //F(n) = g(1) + h(peso)
+                //F = 1 + peso;
+                //F = g + h
+                child.F = child.G + child.Peso;
 
                 children.Add(child);
                 child.parent = this;
